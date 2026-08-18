@@ -207,6 +207,10 @@ The project can be extended with:
 
 B.Sc. IT – AI & ML
 
+🎥 Explanation Video:
+
+https://drive.google.com/file/d/1vavxF9pyszrAHmWF1irAa3ziXuP2d9PX/view?usp=sharing
+
 ## ⭐ Conclusion
 
 This project is a practical implementation of **Object-Oriented Programming in Python**. It demonstrates how OOP concepts can be combined to create a simple and organized **Employee Management System**
