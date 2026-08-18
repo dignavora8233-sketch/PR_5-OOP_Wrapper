@@ -1,164 +1,211 @@
-## OOP Wrapper - Employee Management System
+Employee Management System – OOP Wrapper
 
-## 📌 Project Overview
+📌 Project Overview
 
-**OOP Wrapper - Employee Management System** is a Python-based project created to demonstrate the core concepts of **Object-Oriented Programming (OOP)**.
+The Employee Management System is a Python-based console application created using Object-Oriented Programming (OOP) concepts.
 
-The project manages details of **Persons, Employees, and Managers** using classes, inheritance, encapsulation, method overriding, and dictionaries.
+This project demonstrates important OOP concepts such as:
 
-## 🎯 Objectives
+- Classes and Objects
+- Inheritance
+- Encapsulation
+- Method Overriding
+- Getters and Setters
+- "super()"
+- Dictionaries
+- Loops and Conditional Statements
+- Built-in functions such as "issubclass()"
 
-The main objectives of this project are:
+🎯 Project Objective
 
-* Understand the basics of Object-Oriented Programming.
-* Implement classes and objects in Python.
-* Demonstrate **Inheritance**.
-* Demonstrate **Encapsulation** using private attributes.
-* Demonstrate **Method Overriding**.
-* Use **Getters and Setters**.
-* Store and display multiple employee and manager records.
-* Create a menu-driven Employee Management System.
+The main objective of this project is to understand how OOP concepts can be combined to create a simple Employee Management System.
 
-## 🛠️ Technologies Used
+The system allows users to:
 
-* **Programming Language:** Python
-* **Concept:** Object-Oriented Programming
-* **Data Structure:** Dictionary
-* **Interface:** Command Line Interface (CLI)
+1. Create Person details
+2. Add Employee details
+3. Add Manager details
+4. Display individual details
+5. Display all employees
+6. Display all managers
+7. Exit the program
 
-## 🧩 OOP Concepts Used
+🏗️ Class Structure
 
-### 1. Class and Object
+Person
+   │
+   └── Employee
+          │
+          └── Manager
 
-The project contains different classes:
+1. Person Class
 
-* `Person`
-* `Employee`
-* `Manager`
+The "Person" class is the parent/base class.
 
-Objects are created from these classes to store and manage information.
+It contains:
 
-### 2. Inheritance
+- Name
+- Age
+- "display()" method
 
-`Employee` inherits from `Person`.
+2. Employee Class
 
-```python
-class Employee(Person):
-```
+The "Employee" class inherits from "Person".
 
-`Manager` inherits from `Employee`.
+It contains:
 
-```python
-class Manager(Employee):
-```
+- Employee ID
+- Salary
+- Getters and setters
+- Employee details display
 
-This demonstrates **multilevel inheritance**.
+Private attributes are used for encapsulation:
 
-### 3. Encapsulation
-
-Employee ID and salary are stored using private attributes:
-
-```python
 self.__employee_id
 self.__salary
-```
 
-They are accessed through getter and setter methods.
+3. Manager Class
 
-### 4. Getter and Setter
+The "Manager" class inherits from "Employee".
 
-Getter methods are used to retrieve private data:
+It contains:
 
-```python
+- Manager ID
+- Salary
+- Department
+- Manager-specific "display()" method
+
+The "display()" method is overridden to demonstrate method overriding.
+
+🔐 Encapsulation
+
+Encapsulation is implemented using private attributes:
+
+self.__employee_id
+self.__salary
+
+Access to these attributes is controlled using getter and setter methods.
+
+Example:
+
 def get_salary(self):
     return self.__salary
-```
 
-Setter methods are used to update data safely:
-
-```python
 def set_salary(self, salary):
     if salary >= 0:
         self.__salary = salary
 
-### 5. Method Overriding
+The salary setter also prevents negative salary values.
 
-The `Manager` class overrides the `display()` method of the parent class.
+🧬 Inheritance
+
+The project demonstrates multilevel inheritance:
+
+Person → Employee → Manager
+
+For example:
+
+class Employee(Person):
+
+and:
+
+class Manager(Employee):
+
+This allows child classes to reuse properties and methods from their parent classes.
+
+🔄 Method Overriding
+
+The "Manager" class overrides the "display()" method of the "Employee" class.
 
 def display(self):
+    print("\nManager Details:")
 
-This demonstrates **polymorphism through method overriding**.
+This demonstrates polymorphism through method overriding.
 
-### 6. `super()`
+📚 Data Storage
 
-The `super()` function is used to call the constructor of the parent class.
+Dictionaries are used to store multiple employee and manager records.
 
-```python
-super().__init__(name, age)
+employees = {}
+managers = {}
 
-## 📋 Features
+Employee records are stored using the Employee ID as the dictionary key.
 
-The program provides the following menu options:
+Manager records are stored using the Manager ID as the dictionary key.
 
-1. **Person Details**
-2. **Employee Details**
-3. **Manager Details**
-4. **Show Details**
-5. **Display All Employees**
-6. **Display All Managers**
-7. **Exit**
 
-## 👤 Person
+🖥️ Menu Options
 
-The `Person` class stores:
+========== Employee Management System ==========
 
-* Name
-* Age
+1. Person Details
+2. Employee Details
+3. Manager Details
+4. Show Details
+5. Display All Employees
+6. Display All Managers
+7. Exit
 
-Example:
+Option 1 – Person Details
 
-Person Details:
-Name: Digna
-Age: 17
+Creates and displays a Person object.
 
-## 👨‍💼 Employee
+Option 2 – Employee Details
 
-The `Employee` class stores:
+Creates an Employee object and stores the employee information.
 
-* Name
-* Age
-* Employee ID
-* Salary
-* Role
+Option 3 – Manager Details
 
-Employee records are stored in the `employees` dictionary.
+Creates a Manager object and stores the manager information.
 
-Example:
+Option 4 – Show Details
 
-Employee Details:
-Name: Digna
-Age: 17
-Employee ID: E101
-Salary: 25000
+Displays the details of the selected Person, Employee, or Manager.
 
-## 👨‍💼 Manager
+Option 5 – Display All Employees
 
-The `Manager` class extends the `Employee` class and additionally stores:
+Displays all employee records stored in the dictionary.
 
-* Department
+Option 6 – Display All Managers
 
-Manager records are stored in the `managers` dictionary.
+Displays all manager records stored in the dictionary.
 
-Example:
+Option 7 – Exit
 
-Manager Details:
-Name: Rahul
-Age: 30
-Employee ID: M101
-Salary: 50000
-Department: IT
+Exits the program and demonstrates inheritance using "issubclass()".
 
-## 💻 Sample Menu
+🔎 OOP Concepts Demonstrated
+
+OOP Concept| Implementation
+Class| "Person", "Employee", "Manager"
+Object| "person", "employee", "manager"
+Inheritance| "Employee(Person)", "Manager(Employee)"
+Encapsulation| Private ID and salary
+Getter| "get_salary()", "get_employee_id()"
+Setter| "set_salary()", "set_employee_id()"
+Method Overriding| "Manager.display()"
+"super()"| Used in child class constructors
+Polymorphism| Overridden "display()" method
+
+▶️ How to Run
+
+Step 1: Install Python
+
+Make sure Python is installed on your system.
+
+Step 2: Save the File
+
+Save the Python code as:
+
+main.py
+
+Step 3: Run the Program
+
+Open the terminal in the project folder and run:
+
+python main.py
+
+💡 Example
 
 ========== Employee Management System ==========
 1. Person Details
@@ -169,43 +216,41 @@ Department: IT
 6. Display All Managers
 7. Exit
 
-Enter your choice:
+Enter your choice: 2
 
-## 📚 Learning Outcomes
+Enter Employee Name: Digna
+Enter Age: 17
+Enter Employee ID: E101
+Enter Salary: 25000
 
-After completing this project, you can understand:
+Employee added successfully.
 
-* Classes and Objects
-* Constructors
-* Inheritance
-* Multilevel Inheritance
-* Encapsulation
-* Private Attributes
-* Getters and Setters
-* Method Overriding
-* `super()` function
-* Dictionaries
-* Menu-driven programs
-* Basic Employee Management System design
+Employee Details:
+Name: Digna
+Age: 17
+Employee ID: E101
+Salary: 25000.0
 
-## 🔮 Future Improvements
+🛠️ Technologies Used
 
-The project can be extended with:
+- Python
+- Object-Oriented Programming
+- Dictionaries
+- Console / CLI
 
-* Developer class
-* Delete employee/manager functionality
-* Update employee information
-* Search employee by ID
-* Save data into a file
-* Database connectivity
-* Login system
-* GUI using Tkinter
+🎓 Learning Outcome
 
-## 👩‍💻 Author
+Through this project, I learned how to implement OOP concepts in Python and how different classes can work together in a real-world application.
 
-**Digna Vora**
+This project helped me understand Inheritance, Encapsulation, Polymorphism, Classes, Objects, Getters, Setters, and Method Overriding in a practical way.
+
+👩‍💻 Author
+
+Digna Vora
 
 B.Sc. IT – AI & ML
+
+⭐ If you found this project useful, feel free to explore the code and learn from it.
 
 🎥 Explanation Video:
 
