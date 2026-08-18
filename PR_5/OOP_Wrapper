@@ -1,7 +1,7 @@
-
 # ============================================================
 #      OOP Wrapper - Employee Management System
 # ============================================================
+
 
 # -------------------- Person Class --------------------
 
@@ -15,6 +15,7 @@ class Person:
         print("\nPerson Details:")
         print("Name:", self.name)
         print("Age:", self.age)
+
 
 # -------------------- Employee Class --------------------
 
@@ -51,15 +52,16 @@ class Employee(Person):
         print("\nEmployee Details:")
         print("Name:", self.name)
         print("Age:", self.age)
-        print("Employee ID:",self.get_employee_id())
+        print("Employee ID:", self.get_employee_id())
         print("Salary:", self.get_salary())
+
 
 # -------------------- Manager Class --------------------
 
 class Manager(Employee):
 
-    def __init__(self, name, age, employee_id, salary, department):
-        super().__init__(name, age, employee_id, salary)
+    def __init__(self, name, age, manager_id, salary, department):
+        super().__init__(name, age, manager_id, salary)
 
         self.department = department
 
@@ -68,22 +70,21 @@ class Manager(Employee):
         print("\nManager Details:")
         print("Name:", self.name)
         print("Age:", self.age)
-        print("Employee ID:", self.get_employee_id())
+        print("Manager ID:", self.get_employee_id())
         print("Salary:", self.get_salary())
         print("Department:", self.department)
+
 
 # -------------------- Main Program --------------------
 
 person = None
 employee = None
 manager = None
-developer = None
 
 
 # Dictionaries to store multiple details
 employees = {}
 managers = {}
-developers = {}
 
 
 while True:
@@ -99,7 +100,8 @@ while True:
 
     choice = input("Enter your choice: ")
 
- # -------------------- Person --------------------
+
+    # -------------------- Person --------------------
 
     if choice == "1":
 
@@ -108,11 +110,12 @@ while True:
 
         person = Person(name, age)
 
-        print("\nPerson created with name:",person.name , "Age:",person.age)
+        print("\nPerson created successfully.")
 
         person.display()
 
- # -------------------- Employee --------------------
+
+    # -------------------- Employee --------------------
 
     elif choice == "2":
 
@@ -134,49 +137,47 @@ while True:
             "Age": age,
             "Employee ID": employee_id,
             "Salary": salary,
-            "Role": "Employee"
-        }
-
-        
+         }
 
         print("\nEmployee added successfully.")
 
         employee.display()
 
- # -------------------- Manager --------------------
+
+    # -------------------- Manager --------------------
 
     elif choice == "3":
 
         name = input("Enter Manager Name: ")
         age = int(input("Enter Age: "))
-        employee_id = input("Enter Employee ID: ")
+        manager_id = input("Enter Manager ID: ")
         salary = float(input("Enter Salary: "))
         department = input("Enter Department: ")
 
         manager = Manager(
             name,
             age,
-            employee_id,
+            manager_id,
             salary,
             department
         )
 
         # Store manager details
-        managers[employee_id] = {
+        managers[manager_id] = {
             "Name": name,
             "Age": age,
-            "Employee ID": employee_id,
+            "Manager ID": manager_id,
             "Salary": salary,
             "Department": department,
             "Role": "Manager"
         }
 
-
         print("\nManager added successfully.")
 
         manager.display()
 
- # -------------------- Show Details --------------------
+
+    # -------------------- Show Details --------------------
 
     elif choice == "4":
 
@@ -211,7 +212,8 @@ while True:
         else:
             print("\nInvalid detail choice!")
 
- # -------------------- Display All Employees --------------------
+
+    # -------------------- Display All Employees --------------------
 
     elif choice == "5":
 
@@ -229,7 +231,8 @@ while True:
         else:
             print("No employee data available.")
 
- # -------------------- Display All Managers --------------------
+
+    # -------------------- Display All Managers --------------------
 
     elif choice == "6":
 
@@ -247,7 +250,8 @@ while True:
         else:
             print("No manager data available.")
 
- # -------------------- Exit --------------------
+
+    # -------------------- Exit --------------------
 
     elif choice == "7":
 
@@ -259,9 +263,15 @@ while True:
             issubclass(Employee, Person)
         )
 
+        print(
+            "Is Manager a subclass of Employee?",
+            issubclass(Manager, Employee)
+        )
+
         break
 
- # -------------------- Invalid Choice --------------------
+
+    # -------------------- Invalid Choice --------------------
 
     else:
 
